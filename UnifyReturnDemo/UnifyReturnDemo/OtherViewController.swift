@@ -14,7 +14,6 @@ class OtherViewController: UIViewController,UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "attention"), style: .plain, target: self, action: #selector(custom))
-        
         //setUpSelf()
         //enableGestureReturn()
     }
