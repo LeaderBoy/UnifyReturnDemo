@@ -1,8 +1,8 @@
 # UnifyReturnDemo
 返回按钮统一样式的设置
 ----------
-##实现效果
-####运行代码前
+## 实现效果
+#### 运行代码前
 
 ---
 
@@ -10,7 +10,7 @@
 
 ---
 
-####运行代码后
+#### 运行代码后
 
 ---
 
@@ -19,16 +19,14 @@
 
 ---
 
-##代码
-####使用:拖入工程无需再写任何代码即可实现(需要提供返回图片)
+## 代码
+#### 使用:拖入工程无需再写任何代码即可实现(需要提供返回图片)
 替换系统的backBarButtonItem 实现返回按钮的统一样式
 ```swift
 extension UINavigationItem {
     override open class func initialize() {
-        let before: Method = class_getInstanceMethod(self, #selector(getter: self.backBarButtonItem))
-        let after: Method  = class_getInstanceMethod(self, #selector(unifiedBackBarButtonItem))
-        
-        method_exchangeImplementations(before, after)
+        exchange(originMethod: #selector(getter: self.backBarButtonItem), with: #selector(unifiedBackBarButtonItem), classInstance: self)
+
     }
     
     func unifiedBackBarButtonItem() -> UIBarButtonItem? {
@@ -75,7 +73,7 @@ func exchange(originMethod:Selector,with newMethod:Selector, classInstance: AnyC
 }
 ```
 
-##讲解
+## 讲解
 在iOS开发中,我们在使用返回按钮的时候,一般都会定义返回按钮的样式于是有了如下的代码
 ```swift
 navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "return").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector
@@ -86,11 +84,11 @@ func popToPreviousController() {
     _ = navigationController?.popViewController(animated: true)
 }
 ```
-#####缺点
+##### 缺点
  1. 每个需要返回的界面都会出现上面的代码
  2. 系统的侧滑返回失效
 
-#####解决方法
+##### 解决方法
  1. 使用继承,即所有需要返回的界面继承一个父类,在父类中实现如上的代码
  2. 使用如下的代码保留系统的侧滑返回
 
@@ -109,7 +107,7 @@ func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> B
 ```
 上面的解决办法会多次的写允许手势的代理方法,进而实际也会用继承来解决.
 
-##思考
+## 思考
 默认的情况下我们不实现任何的代码系统会有默认的返回样式 ,会有类似返回XX界面的按钮,说明即使不写 _ = navigationController?.popViewController(animated: true)  系统仍然知道要返回哪个界面,cmd点击查看 self.navigationItem.leftBarButtonItem后 可以看到如下代码
 ```swift
 open var backBarButtonItem: UIBarButtonItem? // Bar button item to use for the back button in the child navigation item.
@@ -200,7 +198,7 @@ extension UINavigationBar {
 }
 ```
 ![enter image description here](http://oikehvl7k.bkt.clouddn.com/blog_return4.png)
-此时的图片太靠左了,凡事追求完美,因此我们使用了上面的调整位置的代码实现了最终的效果.
+此时的图片有些靠左了(当然,如果图片切的好的话可以考虑不使用此方法调整位置,直接返回切好的图就可以了),凡事追求完美,因此我们使用了上面的调整位置的代码实现了最终的效果.
 
 有时候我们需要为某一个界面定义leftBarButtonItem怎么办?
 答案: 原来怎么写就怎么写,没有侵入性,不会影响原来的东西
@@ -219,6 +217,7 @@ func custom() {
  1. 无需使用继承
  2. 代码拉入工程即可实现全局返回样式
  3. 仍旧可以自定义leftBarButtonItem
+ 4. 系统的侧滑返回手势仍旧有效.
  
 
 

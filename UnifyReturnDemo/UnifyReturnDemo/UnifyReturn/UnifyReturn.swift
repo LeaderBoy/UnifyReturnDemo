@@ -6,10 +6,7 @@ import UIKit
 //MARK: 让backBarButtonItem  和 自己实现的返回函数 交换
 extension UINavigationItem {
     override open class func initialize() {
-        let before: Method = class_getInstanceMethod(self, #selector(getter: self.backBarButtonItem))
-        let after: Method  = class_getInstanceMethod(self, #selector(unifiedBackBarButtonItem))
-        
-        method_exchangeImplementations(before, after)
+        exchange(originMethod: #selector(getter: self.backBarButtonItem), with: #selector(unifiedBackBarButtonItem), classInstance: self)
     }
     
     func unifiedBackBarButtonItem() -> UIBarButtonItem? {
