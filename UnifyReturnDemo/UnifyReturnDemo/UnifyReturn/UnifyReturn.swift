@@ -24,7 +24,7 @@ extension UINavigationBar {
     }
     
     func unifiedBackBarImage() -> UIImage? {
-        return #imageLiteral(resourceName: "return").withRenderingMode(.alwaysOriginal)
+        return adjustImagePosition()!.withRenderingMode(.alwaysOriginal)
     }
 }
 
@@ -33,9 +33,9 @@ extension UINavigationBar {
 
 // 调整图片的位置  不调整的话由于系统的返回按钮是带有文字(返回二字)图片的位置会有点偏
 func adjustImagePosition() -> UIImage?{
-    let image = #imageLiteral(resourceName: "return")
-    UIGraphicsBeginImageContextWithOptions(CGSize(width: image.size.width+10, height: image.size.height), false, UIScreen.main.scale)
-    image.draw(at: CGPoint(x: 10, y: 0))
+    let image = #imageLiteral(resourceName: "topico03")
+    UIGraphicsBeginImageContextWithOptions(CGSize(width: image.size.width+5, height: image.size.height), false, UIScreen.main.scale)
+    image.draw(at: CGPoint(x: 5, y: 0))
     
     let finalImage = UIGraphicsGetImageFromCurrentImageContext()
     
