@@ -10,7 +10,7 @@ extension UINavigationItem {
     }
     
     func unifiedBackBarButtonItem() -> UIBarButtonItem? {
-        return UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
+        return UIBarButtonItem(title: " ", style: .done, target: nil, action: nil)
     }
 }
 
@@ -49,3 +49,7 @@ func exchange(originMethod:Selector,with newMethod:Selector, classInstance: AnyC
     
     method_exchangeImplementations(before, after)
 }
+
+
+
+

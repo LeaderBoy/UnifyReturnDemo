@@ -430,6 +430,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASEURL = 192.168.1.125;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"BASEURL=\\\"192.168.1.100\\\"",
+				);
 				INFOPLIST_FILE = UnifyReturnDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZY.UnifyReturnDemo;
@@ -442,6 +448,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BASEURL = 192.168.1.0;
+				GCC_PREPROCESSOR_DEFINITIONS = "BASEURL=\\\"192.168.1.0\\\"";
 				INFOPLIST_FILE = UnifyReturnDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.YZY.UnifyReturnDemo;
@@ -523,6 +531,7 @@
 				52686B701F14A67E009E936C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52686B711F14A67E009E936C /* Build configuration list for PBXNativeTarget "UnifyReturnDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +540,7 @@
 				52686B731F14A67E009E936C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52686B741F14A67E009E936C /* Build configuration list for PBXNativeTarget "UnifyReturnDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +549,7 @@
 				52686B761F14A67E009E936C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +31,7 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let otherVC = OtherViewController()
-        self.navigationController?.pushViewController(otherVC, animated: true)
+        navigationController?.pushViewController(otherVC, animated: true)
     }
     
     
@@ -42,10 +43,13 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cellID")
         }
-        
         cell?.textLabel?.text = "测试" + "\(indexPath.row)"
-        
         return cell!
     }
 }
+
+
+
+
+
 
