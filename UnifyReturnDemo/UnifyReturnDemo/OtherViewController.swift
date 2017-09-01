@@ -1,10 +1,3 @@
-//
-//  OtherViewController.swift
-//  UnifyReturnDemo
-//
-//  Created by 杨志远 on 2017/7/11.
-//  Copyright © 2017年 BaQiWL. All rights reserved.
-//
 
 import UIKit
 

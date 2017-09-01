@@ -212,6 +212,8 @@ func custom() {
 }
 ```
 
+[Demo链接地址](https://github.com/LeaderBoy/UnifyReturnDemo)
+
 ##总结
 最后实现的好处是什么
 
@@ -222,6 +224,6 @@ func custom() {
  
 
 
- 欢迎评论,欢迎提出意见,欢迎更好的想法.
+#### 欢迎评论,欢迎提出意见,欢迎更好的想法. 如果喜欢请多多支持 [Two Mins Code](https://leaderboy.github.io/app) – 一个专注于最实用开发技巧的App
 
 
